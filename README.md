@@ -23,7 +23,7 @@ This workflow acts as a Telegram bot that can book events in Google Calendar bas
 * **Purpose:** Allows users to interact with a Telegram bot to schedule events in their Google Calendar.
 
 Here is the small video of how it works.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5_7ao5Aquag?si=XID1InyykT7mDNBP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+https://youtu.be/5_7ao5Aquag?si=CfSKvz5f0vSLMLQS
 
 ### **3. 🤖 RAG Chatbot using n8n (AI Agent + OpenAI + Pinecone)**
 
@@ -65,4 +65,4 @@ This approach ensures the chatbot’s answers are **accurate**, **contextual**, 
 <img width="1042" height="345" alt="image" src="https://github.com/user-attachments/assets/187cb6c2-eaaa-4a68-b447-381f24be8621" />
 
 Here is the small video of how it works.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vEOQVpK4Ppw?si=_wtrG5Y0rvS61BBF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+https://youtu.be/vEOQVpK4Ppw?si=DVQNKDqM0Z9XOw92
