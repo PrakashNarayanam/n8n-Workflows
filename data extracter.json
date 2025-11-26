@@ -1,0 +1,147 @@
+{
+  "name": "data extracter",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -96,
+        -32
+      ],
+      "id": "ff8f7082-af8a-4148-b9bc-f83d45c3de1f",
+      "name": "When chat message received",
+      "webhookId": "6864702e-468b-4dbb-b942-5a1cae052b3b"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "=you are a website content researcher and your work is to analyze this website and tell what the website can do and what are the services provided by the website?\n\noutput should not exceed 100 words."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        112,
+        -32
+      ],
+      "id": "789733cd-a9e7-4715-bbdb-067af307a196",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -16,
+        256
+      ],
+      "id": "472c590a-5e88-4868-a466-03635d206269",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "dW1Jq1GPCc1ruTJE",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.output }}",
+        "options": {
+          "systemMessage": "=You are an AI assistant whose task is to gather information about the top 3 competitors for a given company or product.\nFor each competitor, you must provide the following details in a structured format:\n\n1. Name\n2. Website URL\n3. Annual Revenue (latest available)\n4. Net Worth / Valuation\n\nYour responses must be accurate, concise, and based on the most reliable publicly available information. If certain data is not available, clearly mention 'Not publicly available' instead of guessing.\n\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        464,
+        -32
+      ],
+      "id": "e16f6794-3d85-426f-912f-344a540f7f80",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        416,
+        256
+      ],
+      "id": "a8c812f3-6490-46c1-be1a-2883b7b9d7be",
+      "name": "Google Gemini Chat Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "dW1Jq1GPCc1ruTJE",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "b268ead3-2dc8-41cd-896b-efee5a58a19f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "209a25c4f971290ca92722265a4ae8f3f7c602668790d0c2e29b2e5b7d030160"
+  },
+  "id": "c2bl9ymYoCBfJ6ky",
+  "tags": []
+}
